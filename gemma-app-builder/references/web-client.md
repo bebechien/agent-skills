@@ -19,11 +19,11 @@ Optimized for on-device performance (Android, iOS, Web).
 Run Transformers directly in the browser using JavaScript.
 
 **Setup:**
--   **Install**: `npm install @xenova/transformers`
+-   **Install**: `npm i @huggingface/transformers@next`
 -   **Load**:
     ```javascript
-    import { pipeline } from '@xenova/transformers';
-    const generator = await pipeline('text-generation', 'Xenova/gemma-2b-it');
+    import { pipeline } from '@huggingface/transformers';
+    const generator = await pipeline('text-generation', 'onnx-community/gemma-3-270m-it-ONNX' {device: 'webgpu', dtype: 'q4'});
     ```
 -   **Run**: Generate text entirely client-side.
 
