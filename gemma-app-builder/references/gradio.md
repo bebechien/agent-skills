@@ -23,7 +23,7 @@ Gradio allows you to quickly create UIs for your machine learning models in Pyth
 -   **Code**: Create `app.py`:
     ```python
     import gradio as gr
-    from transformers import pipeline, TextIteratorStreamer
+    from transformers import pipeline, TextIteratorStreamer, GenerationConfig
     from threading import Thread
 
     # Load the pipeline
@@ -39,16 +39,26 @@ Gradio allows you to quickly create UIs for your machine learning models in Pyth
 
     def chat(message, history):
         messages = []
+
         # Add conversation history
-        for user_msg, assistant_msg in history:
-            messages.append({"role": "user", "content": user_msg})
-            messages.append({"role": "assistant", "content": assistant_msg})
+        for msg in history:
+            role = msg["role"]
+
+            # Extract text from the content list (e.g. [{'text': 'hello', 'type': 'text'}])
+            if isinstance(msg["content"], list):
+                content_text = "".join([item["text"] for item in msg["content"] if item["type"] == "text"])
+            else:
+                content_text = msg["content"]
+
+            messages.append({"role": role, "content": content_text})
+
         # Add current user message
         messages.append({"role": "user", "content": message})
 
         streamer = TextIteratorStreamer(pipe.tokenizer, skip_prompt=True, skip_special_tokens=True)
+        config = GenerationConfig(max_new_tokens=256)
         thread = Thread(target=pipe, args=(messages,), kwargs=dict(
-            max_new_tokens=256,
+            generation_config=config,
             streamer=streamer
         ))
         thread.start()
