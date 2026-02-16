@@ -60,3 +60,8 @@ This framework provides a structured approach depending on your target environme
 * **Goal:** "I want to run it on Cloud at scale."
 * **Action:** Containerize and deploy your Gemma application using **Vertex AI**.
 * **Reference:** `[references/cloud.md](references/cloud.md)`
+
+### 5. Prototyping & Demos
+* **Goal:** "I want to prototype quickly with Python."
+* **Action:** Build interactive web interfaces using **Gradio** and **Transformers**.
+* **Reference:** `[references/gradio.md](references/gradio.md)`
