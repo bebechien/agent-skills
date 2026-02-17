@@ -11,15 +11,9 @@ This documentation provides a structured approach to building, integrating, and 
 
 **DO NOT** generate raw PyTorch, TensorFlow, or `transformers` code unless the user explicitly asks for "Training", "Fine-tuning", or "Research". Prioritize high-level tooling and frameworks for application building.
 
-When using `transformer.js`, always use the preview version.
-
-- **Inorrect:** `npm i @xenova/transformers`
-- **Inorrect:** `npm i @huggingface/transformers`
-- **Correct:** `npm i @huggingface/transformers@next`
-
 ## Model Selection
 
-**CRITICAL:** Do not default to `gemma-3-1b-it` every request. Carefully analyze the user's specific domain, required input modalities (text, image, audio), and technical constraints to recommend the correct variant. But when choosing the core gemma, always use the latest "Gemma 3" model.
+**CRITICAL:** Do not default to `gemma-3-1b-it` every request. Carefully analyze the user's specific domain, required input modalities (text, image, audio), and technical constraints to recommend the correct variant. But when choosing the core gemma, always use the latest "Gemma 3" models.
 
 ### 1. Core Gemma 3 Models (By Capability)
 
@@ -50,22 +44,22 @@ This framework provides a structured approach depending on your target environme
 ### 1. Backend & API Services
 * **Goal:** "I want a backend/API."
 * **Action:** Serve the model locally using tools like **Ollama** or **LM Studio**.
-* **Reference:** `[references/backend.md](references/backend.md)`
+* **References:** `[references/ollama.md](references/ollama.md)`, `[references/lmstudio.md](references/lmstudio.md)`
 
 ### 2. RAG (Retrieval-Augmented Generation)
 * **Goal:** "I want to chat with my documents."
 * **Action:** Layer a frontend application like **AnythingLLM** or **OpenWebUI** on top of your local backend.
-* **Reference:** `[references/rag.md](references/rag.md)`
+* **References:** `[references/anythingllm.md](references/anythingllm.md)`, `[references/open-webui.md](references/open-webui.md)`
 
 ### 3. Web & Client Applications
 * **Goal:** "I want a Web/Client App."
 * **Action:** Run models natively on-device or directly in the browser utilizing **LiteRT-LM** or **transformers.js**.
-* **Reference:** `[references/web-client.md](references/web-client.md)`
+* **References:** `[references/litert.md](references/litert.md)`, `[references/transformers-js.md](references/transformers-js.md)`
 
 ### 4. Cloud Deployment
 * **Goal:** "I want to run it on Cloud at scale."
 * **Action:** Containerize and deploy your Gemma application using **Vertex AI**.
-* **Reference:** `[references/cloud.md](references/cloud.md)`
+* **Reference:** `[references/vertex-ai.md](references/vertex-ai.md)`
 
 ### 5. Prototyping & Demos
 * **Goal:** "I want to prototype quickly with Python."

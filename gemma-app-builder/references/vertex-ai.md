@@ -1,10 +1,5 @@
-# Cloud Deployment
+# Vertex AI
 
-This module covers deploying Gemma to the cloud for scalable, production-ready applications.
-
-## Option
-
-### Vertex AI
 Google Cloud's fully managed AI platform.
 
 **Setup:**
