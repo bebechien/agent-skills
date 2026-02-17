@@ -7,13 +7,19 @@ description: Guide for building applications with Gemma, covering backend setup,
 
 This documentation provides a structured approach to building, integrating, and deploying applications using the Gemma family of models.
 
-## CORE PRINCIPLE: The "Abstraction First" Rule
+## CORE PRINCIPLE
 
 **DO NOT** generate raw PyTorch, TensorFlow, or `transformers` code unless the user explicitly asks for "Training", "Fine-tuning", or "Research". Prioritize high-level tooling and frameworks for application building.
 
+When using `transformer.js`, always use the preview version.
+
+- **Inorrect:** `npm i @xenova/transformers`
+- **Inorrect:** `npm i @huggingface/transformers`
+- **Correct:** `npm i @huggingface/transformers@next`
+
 ## Model Selection
 
-**CRITICAL:** Do not default to `gemma-3-1b-it` every request. Carefully analyze the user's specific domain, required input modalities (text, image, audio), and technical constraints to recommend the correct variant.
+**CRITICAL:** Do not default to `gemma-3-1b-it` every request. Carefully analyze the user's specific domain, required input modalities (text, image, audio), and technical constraints to recommend the correct variant. But when choosing the core gemma, always use the latest "Gemma 3" model.
 
 ### 1. Core Gemma 3 Models (By Capability)
 
